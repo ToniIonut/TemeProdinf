@@ -2,35 +2,30 @@
 
 import java.util.Arrays;
 
-public class Anagrame{
-    public static boolean suntAnagrame(String cuvant1, String cuvant2) {
- 
-        String CuvantNou1 = cuvant1.replaceAll(" ", "");
-        String CuvantNou2 = cuvant2.replaceAll(" ", "");
-
-      
-        if (CuvantNou1.length() != CuvantNou2.length()) {
-            return false;
-        }
-
-        char[] cuvant1Array = CuvantNou1.toCharArray();
-        char[] cuvant2Array = CuvantNou2.toCharArray();
-
-      
-        Arrays.sort(cuvant1Array);
-        Arrays.sort(cuvant2Array);
-
-        return Arrays.equals(cuvant1Array, cuvant2Array);
-    }
-
+public class Anagrame {
     public static void main(String[] args) {
         String cuvant1 = "listen";
         String cuvant2 = "silent";
 
-        if (suntAnagrame(cuvant1, cuvant2)) {
-            System.out.println(cuvant1 + " și " + cuvant2 + " sunt anagrame.");
-        } else {
+        String cuvantNou1 = cuvant1.replaceAll(" ", "");
+        String cuvantNou2 = cuvant2.replaceAll(" ", "");
+
+        if (cuvantNou1.length() != cuvantNou2.length()) {
             System.out.println(cuvant1 + " și " + cuvant2 + " nu sunt anagrame.");
+        } else {
+            char[] cuvant1Array = cuvantNou1.toCharArray();
+            char[] cuvant2Array = cuvantNou2.toCharArray();
+
+            Arrays.sort(cuvant1Array);
+            Arrays.sort(cuvant2Array);
+
+            boolean suntAnagrame = Arrays.equals(cuvant1Array, cuvant2Array);
+
+            if (suntAnagrame) {
+                System.out.println(cuvant1 + " și " + cuvant2 + " sunt anagrame.");
+            } else {
+                System.out.println(cuvant1 + " și " + cuvant2 + " nu sunt anagrame.");
+            }
         }
     }
 }
@@ -38,21 +33,6 @@ public class Anagrame{
 
 //Se se scrie un program care aduna doua numere exprimate in binar (exp a = 11, b = 1, a+b = 100). Rezultatul fiind de asemenea in binar.
 
-public class adunareBinara {
-    public static String adunareBinara(String a, String b) {
-        int sumaDecimala = Integer.parseInt(a, 2) + Integer.parseInt(b, 2);
-        return Integer.toBinaryString(sumaDecimala);
-    }
-
-    public static void main(String[] args) {
-        String a = "11";
-        String b = "1";
-
-        String suma = adunareBinara(a, b);
-
-        System.out.println("Suma: " + suma);
-    }
-}
 
 
 //Afiseza numerele de la 1 la 10 fara folosi vreo bucla (for / while / do while). Indiciu: recursivitate.
@@ -125,24 +105,6 @@ public class PrimulCaracterDistinct {
 //nou sir de caractere (String) cu duplicatele eliminate. Ex: ABBCCCCCBBAB -> ABCBAB
 
 
-public class EliminaDuplicate {
-    public static void main(String[] args) {
-        String input = "ABBCCCCCBBAB";
-        StringBuilder rezultat = new StringBuilder();
-      
-
-        for (int i = 0; i < input.length(); i++) {
-            char caracter = input.charAt(i);
-
-            if (rezultat.indexOf(String.valueOf(caracter)) == -1) {
-                rezultat.append(caracter);
-            }
-        }
-
-        String rezultatFinal = rezultat.toString();
-        System.out.println("Rezultat: " + rezultatFinal);
-    }
-}
 
 
 //Scrieti un program care simuleaza aruncarea unei perechi de zaruri.
